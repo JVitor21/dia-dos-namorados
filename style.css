@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    color: #333;
+}
+
+/* Container Principal */
+.header-section {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #d81159;
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Player de Música Redondo Giratório */
+.music-player {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(216, 17, 89, 0.4);
+    border: 5px solid #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color: #ffe6e6;
+    transition: transform 0.2s;
+}
+
+.music-player:hover {
+    transform: scale(1.05);
+}
+
+#vinyl-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: spin 5s linear infinite;
+    animation-play-state: paused;
+}
+
+#vinyl-image.playing {
+    animation-play-state: running;
+}
+
+.play-overlay {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.play-overlay.hidden {
+    opacity: 0;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Galeria de Fotos (Carrossel Infinito) */
+.gallery-container {
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    margin: 30px 0;
+    z-index: 10;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+.gallery-track {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+}
+
+.gallery-track:hover {
+    animation-play-state: paused;
+}
+
+.gallery-track img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 10px;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.gallery-track img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Mensagem Final */
+.message-card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 50px;
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(216, 17, 89, 0.15);
+    line-height: 1.8;
+}
+
+/* Corações Flutuantes */
+.heart {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    animation: float 5s ease-in infinite;
+    opacity: 0;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* Responsividade para celular */
+@media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
+    .gallery-track img { height: 180px; width: 180px; }
+}

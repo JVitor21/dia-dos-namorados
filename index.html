@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ashilly ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="nossa-musica" src="Musica/AllofMe.mp3" loop preload="auto">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div class="header-section">
+        <h1>Feliz Dia dos Namorados, Ashilly!</h1>
+        <div class="subtitle">Uma pequena surpresa para a dona do meu coração ❤️</div>
+    </div>
+
+    <div class="music-player" onclick="toggleMusic()" title="Clique para tocar/pausar">
+        <img src="Fotos/imagem1.jpeg" id="vinyl-image" alt="Capa da Música">
+        <div class="play-overlay" id="play-icon">▶️</div>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery-track">
+            <img src="Fotos/imagem1.jpeg">
+            <img src="Fotos/imagem2.jpeg">
+            <img src="Fotos/imagem3.jpeg">
+            <img src="Fotos/imagem4.jpeg">
+            <img src="Fotos/imagem5.jpeg">
+            <img src="Fotos/imagem6.jpeg">
+
+            <img src="Fotos/imagem1.jpeg">
+            <img src="Fotos/imagem2.jpeg">
+            <img src="Fotos/imagem3.jpeg">
+            <img src="Fotos/imagem4.jpeg">
+            <img src="Fotos/imagem5.jpeg">
+            <img src="Fotos/imagem6.jpeg">
+        </div>
+    </div>
+
+    <div class="message-card">
+        <p>Meu amor, preparei este cantinho virtual para guardar alguns dos nossos momentos. Cada foto aqui é um pedacinho da nossa história.</p>
+        <p>Obrigado por dividir a vida comigo, por cada risada e por me fazer tão feliz. Que este seja apenas mais um de muitos Dias dos Namorados que passaremos juntos.</p>
+        <p><strong>Eu te amo infinitamente!</strong></p>
+    </div>
+
+    <script>
+        // Lógica do Novo Player de Música
+        const audio = document.getElementById('nossa-musica');
+        const vinylImage = document.getElementById('vinyl-image');
+        const playIcon = document.getElementById('play-icon');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                vinylImage.classList.remove('playing');
+                playIcon.classList.remove('hidden');
+                isPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    vinylImage.classList.add('playing');
+                    playIcon.classList.add('hidden');
+                    isPlaying = true;
+                }).catch(error => {
+                    alert("Ops! Não foi possível tocar a música. Verifique se o nome da pasta e do arquivo mp3 estão corretos no código.");
+                    console.error("Erro no áudio:", error);
+                });
+            }
+        }
+
+        // Lógica dos Corações Flutuantes no Fundo
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = Math.random() > 0.5 ? '❤' : '✨'; 
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+
+</body>
+</html>
