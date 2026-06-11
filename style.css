@@ -97,6 +97,7 @@ h1 {
     z-index: 10;
     white-space: nowrap;
     padding: 10px 0;
+    padding: 40px 0;
 }
 
 .gallery-track {
@@ -207,4 +208,22 @@ h1 {
     font-weight: 700;
     color: #d81159; /* Usa a mesma cor rosa escuro do título principal */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+/* ==========================================
+   Efeito de Zoom nas Fotos da Galeria
+   ========================================== */
+.gallery-track img {
+    position: relative;
+    z-index: 1;
+    /* O transition faz o aumento ser suave, parecendo uma animação fluida */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* O :hover é para o mouse, o :active é para o toque no celular */
+.gallery-track img:hover,
+.gallery-track img:active {
+    transform: scale(1.2); /* Aumenta a foto em 20% */
+    box-shadow: 0 15px 25px rgba(216, 17, 89, 0.5); /* Adiciona uma sombra rosa escura atrás da foto */
+    z-index: 10; /* Garante que a foto que cresceu fique por cima das outras */
 }
