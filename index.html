@@ -18,6 +18,11 @@
         <div class="subtitle">Uma pequena surpresa para a dona do meu coração ❤️</div>
     </div>
 
+    <div class="counter-box">
+        <p>Tempo que sou feliz ao seu lado:</p>
+        <div id="timer"></div>
+    </div>
+
     <div class="music-player" onclick="toggleMusic()" title="Clique para tocar/pausar">
         <img src="Fotos/imagem1.jpeg" id="vinyl-image" alt="Capa da Música">
         <div class="play-overlay" id="play-icon">▶️</div>
@@ -47,49 +52,7 @@
         <p><strong>Eu te amo infinitamente!</strong></p>
     </div>
 
-    <script>
-        // Lógica do Novo Player de Música
-        const audio = document.getElementById('nossa-musica');
-        const vinylImage = document.getElementById('vinyl-image');
-        const playIcon = document.getElementById('play-icon');
-        let isPlaying = false;
-
-        function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                vinylImage.classList.remove('playing');
-                playIcon.classList.remove('hidden');
-                isPlaying = false;
-            } else {
-                audio.play().then(() => {
-                    vinylImage.classList.add('playing');
-                    playIcon.classList.add('hidden');
-                    isPlaying = true;
-                }).catch(error => {
-                    alert("Ops! Não foi possível tocar a música. Verifique se o nome da pasta e do arquivo mp3 estão corretos no código.");
-                    console.error("Erro no áudio:", error);
-                });
-            }
-        }
-
-        // Lógica dos Corações Flutuantes no Fundo
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = Math.random() > 0.5 ? '❤' : '✨'; 
-            
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
-            
-            document.body.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
-
-        setInterval(createHeart, 400);
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>

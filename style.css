@@ -39,8 +39,8 @@ h1 {
 /* Player de Música Redondo Giratório */
 .music-player {
     position: relative;
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
     margin: 20px auto;
     cursor: pointer;
     border-radius: 50%;
@@ -161,4 +161,50 @@ h1 {
 @media (max-width: 600px) {
     h1 { font-size: 2.5rem; }
     .gallery-track img { height: 180px; width: 180px; }
+}
+
+/* Efeito de Batimento Cardíaco no Carrossel */
+.gallery-container {
+    animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    10% { transform: scale(1.02); }
+    20% { transform: scale(1); }
+    30% { transform: scale(1.02); }
+    40% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+/* ==========================================
+   Estilo do Cronômetro de Namoro
+   ========================================== */
+.counter-box {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 15px 35px;
+    border-radius: 50px;
+    margin: 10px auto 30px auto; /* Centraliza e afasta do player de música */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(216, 17, 89, 0.15);
+    backdrop-filter: blur(5px); /* Dá um efeito de vidro fosco */
+    z-index: 10;
+    max-width: fit-content;
+}
+
+.counter-box p {
+    margin: 0 0 5px 0;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#timer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #d81159; /* Usa a mesma cor rosa escuro do título principal */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
