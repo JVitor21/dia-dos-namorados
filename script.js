@@ -25,18 +25,37 @@ function toggleMusic() {
 }
 
 // ==========================================
-// 2. Corações Flutuantes
+// 2. Corações Flutuantes (Maiores e em tons fortes)
 // ==========================================
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
     heart.innerHTML = Math.random() > 0.5 ? '❤' : '✨'; 
+    
+    // Posição aleatória na tela
     heart.style.left = Math.random() * 100 + 'vw';
+    
+    // Velocidade de subida aleatória
     heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+    
+    // NOVO: Tamanho ainda maior (variando entre 25px e 60px)
+    heart.style.fontSize = Math.floor(Math.random() * 55 + 45) + 'px';
+    
+    // NOVO: Paleta de cores fortes (Vermelhos intensos e Rosas escuros)
+    const cores = ['#FF0000', '#CC0000', '#D81159', '#FF1493', '#FF0055'];
+    heart.style.color = cores[Math.floor(Math.random() * cores.length)];
+    
+    // NOVO: Um pequeno brilho no fundo de cada coração para destacar a cor
+    heart.style.textShadow = "0px 0px 8px rgba(255, 255, 255, 0.4)";
+    
     document.body.appendChild(heart);
+    
+    // Remove o coração da memória depois de 7 segundos
     setTimeout(() => { heart.remove(); }, 7000);
 }
-setInterval(createHeart, 400);
+
+// Cria os corações rapidamente (a cada 150 milissegundos)
+setInterval(createHeart, 150);
 
 // ==========================================
 // 3. Cronômetro (Anos, Meses e Dias)
