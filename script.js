@@ -42,7 +42,7 @@ setInterval(createHeart, 400);
 // 3. Cronômetro (Anos, Meses e Dias)
 // ==========================================
 // Coloque a data do início do namoro no formato: 'ANO-MES-DIA'
-const dataInicio = new Date('2023-056-25T00:00:00');
+const dataInicio = new Date('2023-06-25T00:00:00');
 
 function atualizarCronometro() {
     const elementoTimer = document.getElementById('timer');
