@@ -227,3 +227,18 @@ h1 {
     box-shadow: 0 15px 25px rgba(216, 17, 89, 0.5); /* Adiciona uma sombra rosa escura atrás da foto */
     z-index: 10; /* Garante que a foto que cresceu fique por cima das outras */
 }
+/* ==========================================
+   Título do Carrossel de Fotos
+   ========================================== */
+.gallery-title {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #d81159;
+    margin-top: 50px; /* Empurra o título mais para baixo, afastando do disco */
+    margin-bottom: -15px; /* O TRUQUE: Puxa o título para perto das fotos, invadindo aquele espaço invisível */
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    position: relative; /* Garante que o título não fique escondido atrás de nada */
+    z-index: 5;
+}
